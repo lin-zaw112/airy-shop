@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   AnimatePresence,
@@ -10,7 +10,7 @@ import {
   motion,
 } from "framer-motion";
 import NavItem from "./NavItem";
-import { useDispatch, useSelector, UiSlice } from "@/lib/redux";
+import { useDispatch, UiSlice } from "@/lib/redux";
 import Cart from "./Cart";
 
 const animation = {
@@ -29,19 +29,15 @@ const animation = {
 };
 
 export default function Header() {
-  const [effect, setEffect] = useState(false);
   const [isMenuOpen, SetMenu] = useState(false);
-  const itemsQuantity = useSelector((state) => state.Cart.itemsQuantity);
   const dispatch = useDispatch();
-  useEffect(() => {
-    setEffect(true);
-  }, [itemsQuantity]);
 
   return (
     <div className="sticky top-0 z-10 flex h-16 w-screen items-center justify-between border-b border-gray-400 bg-neutral-50 px-4">
       <h1 className="font-serif text-4xl font-semibold">
         <Link href="/">
-          Ariy<sapn className="font-sans text-lg font-bold">Shop</sapn>
+          Airy
+          <sapn className="font-sans text-lg font-bold">Shop</sapn>
         </Link>
       </h1>
       <div className="z-50 flex items-center space-x-2">

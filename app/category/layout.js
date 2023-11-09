@@ -3,8 +3,7 @@ import React from "react";
 
 async function getCategoriesFromApi() {
   const data = await fetch("https://dummyjson.com/products/categories");
-  const categories = await data.json();
-  return categories;
+  return await data.json();
 }
 
 export default async function layout({ children }) {

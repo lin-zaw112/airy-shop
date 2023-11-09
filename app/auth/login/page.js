@@ -9,8 +9,7 @@ const getRandomUser = async () => {
   const data = await fetch(
     `https://dummyjson.com/users/${random(100)}?select=username,password,email`,
   );
-  const user = await data.json();
-  return user;
+  return await data.json();
 };
 
 export default function Page() {

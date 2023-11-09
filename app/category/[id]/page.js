@@ -1,6 +1,7 @@
 import React from "react";
 import Paginate from "../Paginate";
 import Card from "../Card";
+
 const getProducts = async (page, category) => {
   console.log(
     `https://dummyjson.com/products/category/${category}?limit=20&skip=${
@@ -12,8 +13,7 @@ const getProducts = async (page, category) => {
       20 * page
     }`,
   );
-  const products = await data.json();
-  return products;
+  return await data.json();
 };
 export default async function Page({ params, searchParams }) {
   const page = searchParams.page ?? "0";

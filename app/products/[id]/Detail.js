@@ -5,7 +5,7 @@ import { range } from "underscore";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as ActiveStarIcon } from "@heroicons/react/24/solid";
 import Button from "./Button";
-import { useDispatch, CartSlice, UiSlice, useSelector } from "@/lib/redux";
+import { useDispatch, CartSlice, useSelector } from "@/lib/redux";
 import { useRouter } from "next/navigation";
 
 export default function Detail({ product }) {

@@ -1,13 +1,13 @@
 import ItemCard from "@/components/ItemCard/ItemCard";
 import React from "react";
 import Paginate from "./Paginate";
+
 const getProducts = async (page) => {
   console.log(`https://dummyjson.com/products?limit=20&skip=${20 * page}`);
   const data = await fetch(
     `https://dummyjson.com/products?limit=20&skip=${20 * page}`,
   );
-  const products = await data.json();
-  return products;
+  return await data.json();
 };
 export default async function Page({ searchParams }) {
   const page = searchParams.page ?? "0";

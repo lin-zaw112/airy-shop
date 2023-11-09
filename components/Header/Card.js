@@ -1,18 +1,12 @@
-import { CartSlice, useDispatch, useSelector } from "@/lib/redux";
+import { useSelector } from "@/lib/redux";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
 export default function Card({ id }) {
-  const dispatch = useDispatch();
   const carts = useSelector((state) => state.Cart.carts);
   const [item] = carts.filter((item) => item.id === id);
-  const increaseQuantity = () => {
-    dispatch(CartSlice.actions.addToCart(item));
-  };
-  const decreaseQuantity = () => {
-    dispatch(CartSlice.actions.removeFromCart(item));
-  };
+
   return (
     <div className="flex h-fit w-full flex-row justify-around rounded-lg p-4 shadow">
       <div className="relative h-24 min-h-fit w-24">

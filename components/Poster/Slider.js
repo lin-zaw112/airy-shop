@@ -9,12 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import {
-  Autoplay,
-  EffectCreative,
-  Pagination,
-  Navigation,
-} from "swiper/modules";
+import { Autoplay, EffectCreative, Pagination } from "swiper/modules";
 
 export default function Slider({ children }) {
   return (
