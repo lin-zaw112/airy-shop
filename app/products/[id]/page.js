@@ -6,7 +6,9 @@ import { cookies } from "next/headers";
 export default async function page({ params }) {
   const { id } = params;
   const getProductById = async (id) => {
-    const { value: token } = cookies().get("jwt");
+    const jwt = cookies().get("jwt");
+    let token = "";
+    if (jwt) token = jwt.value;
     const data = await fetch(`https://dummyjson.com/products/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -14,7 +16,6 @@ export default async function page({ params }) {
     return await data.json();
   };
   const product = await getProductById(id);
-  console.log(product);
   return (
     <main>
       <div className="h-screen md:flex md:h-fit md:flex-row md:justify-between lg:mx-auto lg:w-5/6">

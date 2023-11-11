@@ -33,7 +33,7 @@ export default async function Page({ searchParams }) {
           />
         ))}
       </div>
-      <Paginate pageCount={products.total / products.limit} />
+      <Paginate pageCount={4} />
     </div>
   );
 }
