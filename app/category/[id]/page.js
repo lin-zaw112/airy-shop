@@ -3,11 +3,6 @@ import Paginate from "../Paginate";
 import Card from "../Card";
 
 const getProducts = async (page, category) => {
-  console.log(
-    `https://dummyjson.com/products/category/${category}?limit=20&skip=${
-      20 * page
-    }`,
-  );
   const data = await fetch(
     `https://dummyjson.com/products/category/${category}?limit=20&skip=${
       20 * page
@@ -23,7 +18,9 @@ export default async function Page({ params, searchParams }) {
       {products.products.map((product) => (
         <Card product={product} key={product.id} />
       ))}
-      <Paginate pageCount={products.total / products.limit} />
+      {products.total > 20 && (
+        <Paginate pageCount={products.total / products.limit} />
+      )}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Card({ id }) {
   const dispatch = useDispatch();
   const carts = useSelector((state) => state.Cart.carts);
+  const notification = useSelector((state) => state.Ui.notification);
   const [item] = carts.filter((item) => item.id === id);
   const increaseQuantity = () => {
     dispatch(CartSlice.actions.addToCart(item));
@@ -34,17 +35,19 @@ export default function Card({ id }) {
             {item.quantity} pics X {item.price} = {item.total} $
           </h2>
         </div>
-        <div className="flex gap-3 ">
-          <button
-            className="border bg-neutral-950 px-5 py-1 uppercase text-neutral-50 transition duration-500 active:bg-neutral-50 active:text-neutral-950"
-            onClick={increaseQuantity}
-          >
-            add
-          </button>
-          <button className="border px-5 py-1" onClick={decreaseQuantity}>
-            remove
-          </button>
-        </div>
+        {notification === null && (
+          <div className="flex gap-3 ">
+            <button
+              className="border bg-neutral-950 px-5 py-1 uppercase text-neutral-50 transition duration-500 active:bg-neutral-50 active:text-neutral-950"
+              onClick={increaseQuantity}
+            >
+              add
+            </button>
+            <button className="border px-5 py-1" onClick={decreaseQuantity}>
+              remove
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

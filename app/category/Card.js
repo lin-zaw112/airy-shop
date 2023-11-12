@@ -15,10 +15,7 @@ export default function Card({ product }) {
   };
 
   return (
-    <Link
-      href={`/products/${id}`}
-      className="group flex h-44 w-full flex-row items-center overflow-hidden rounded-2xl shadow sm:h-48 md:h-56"
-    >
+    <div className="group flex h-44 w-full flex-row items-center overflow-hidden rounded-2xl shadow sm:h-48 md:h-56">
       <div className="relative h-44 w-1/3 overflow-hidden sm:h-64">
         <Image
           src={thumbnail}
@@ -29,12 +26,14 @@ export default function Card({ product }) {
         />
       </div>
       <div className=" relative h-full w-2/3 justify-center px-4 py-8 font-sans uppercase backdrop-blur-sm">
-        <h2 className="line-clamp-2 text-lg sm:text-lg">{title}</h2>
+        <Link href={`/products/${id}`}>
+          <h2 className="line-clamp-2 text-lg sm:text-lg">{title}</h2>
+        </Link>
         <h3 className="text-sm text-gray-500">{brand}</h3>
         <div>
           <p className="font-mono">in stock : {stock}</p>
           <button
-            className="border bg-neutral-950 px-5 py-1 uppercase text-neutral-50 transition duration-500 active:bg-neutral-50 active:text-neutral-950"
+            className="z-50 border bg-neutral-950 px-5 py-1 uppercase text-neutral-50 transition duration-500 active:bg-neutral-50 active:text-neutral-950"
             onClick={increaseQuantity}
           >
             add
@@ -48,6 +47,6 @@ export default function Card({ product }) {
           </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
