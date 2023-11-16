@@ -2,6 +2,8 @@ import { Providers } from "@/lib/providers";
 import { Rubik, Lato, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header/Header";
 import "./globals.css";
+import Notification from "@/app/Notification";
+
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Header />
           {children}
+          <Notification />
         </Providers>
       </body>
     </html>

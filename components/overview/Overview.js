@@ -1,9 +1,11 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
+import { random } from "underscore";
 
 const getProducts = async function () {
+  const randomNum = random(0, 80);
   const data = await fetch(
-    "https://dummyjson.com/products?limit=10&skip=0&select=price,title,description,id,thumbnail,category",
+    `https://dummyjson.com/products?limit=10&skip=${randomNum}&select=price,title,description,id,thumbnail,category`,
   );
   const products = await data.json();
   return products.products;

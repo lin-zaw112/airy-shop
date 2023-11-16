@@ -1,5 +1,5 @@
 import ItemCard from "@/components/ItemCard/ItemCard";
-import React from "react";
+import React, { Fragment } from "react";
 import Paginate from "./Paginate";
 
 const getProducts = async (page) => {
@@ -12,13 +12,9 @@ export default async function Page({ searchParams }) {
   const page = searchParams.page ?? "0";
   const products = await getProducts(page);
   if (products.length <= 0)
-    return (
-      <div className="relative m-2 flex h-full w-4/5 flex-col overflow-hidden rounded-lg shadow">
-        <h1> We are trying to get more product for you</h1>
-      </div>
-    );
+    return <h1> We are trying to get more product for you</h1>;
   return (
-    <div className="relative m-2 flex h-full w-4/5 flex-col overflow-hidden rounded-lg shadow">
+    <Fragment>
       <div className="flex w-full flex-row flex-wrap justify-around gap-3 overflow-y-scroll">
         {products.products.map((product) => (
           <ItemCard
@@ -33,6 +29,6 @@ export default async function Page({ searchParams }) {
         ))}
       </div>
       <Paginate pageCount={4} />
-    </div>
+    </Fragment>
   );
 }

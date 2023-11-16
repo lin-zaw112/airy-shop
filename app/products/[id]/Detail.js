@@ -5,7 +5,7 @@ import { range } from "underscore";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as ActiveStarIcon } from "@heroicons/react/24/solid";
 import Button from "./Button";
-import { useDispatch, CartSlice, useSelector } from "@/lib/redux";
+import { useDispatch, useSelector, addToTheCart } from "@/lib/redux";
 import { useRouter } from "next/navigation";
 
 export default function Detail({ product }) {
@@ -14,9 +14,7 @@ export default function Detail({ product }) {
   const hasItemInCart = useSelector((state) => state.Cart.hasItem);
   const router = useRouter();
   const addToCartHandler = () => {
-    dispatch(
-      CartSlice.actions.addToCart({ title, brand, price, id, thumbnail }),
-    );
+    dispatch(addToTheCart({ title, brand, price, id, thumbnail }));
   };
 
   return (

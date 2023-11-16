@@ -13,7 +13,7 @@ export default function ItemCard({
   return (
     <Link
       href={`/products/${id}`}
-      className="group flex h-36 w-full flex-row items-center overflow-hidden rounded-2xl shadow sm:h-96 sm:w-56 sm:flex-col md:w-60"
+      className="group flex h-36 w-full flex-row items-center overflow-hidden rounded-2xl shadow sm:h-96 sm:w-56 sm:flex-col md:w-56 lg:w-60"
     >
       <div className="relative h-44 w-full overflow-hidden sm:h-64">
         <Image
