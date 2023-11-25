@@ -21,7 +21,7 @@ export default function Notification() {
     }
     return (
       <div
-        className={`${notificationStatusClass} absolute bottom-0 right-0 mx-4 my-2 h-fit w-3/4 px-5 py-8 transition-all sm:w-2/4 lg:w-1/4`}
+        className={`${notificationStatusClass} absolute bottom-0 right-0 mx-4 my-2 h-fit w-3/4 px-5 py-8 transition-all sm:w-2/4 lg:w-fit`}
       >
         <h2 className="whitespace-nowrap text-lg font-semibold uppercase">
           {notification.title}
