@@ -8,6 +8,8 @@ async function getCategoriesFromApi() {
 
 export default async function layout({ children }) {
   const categories = await getCategoriesFromApi();
+  console.log(categories);
+
   return (
     <main className="flex flex-row">
       <div className="sr-only top-16 m-2 h-screen overflow-hidden rounded-lg shadow md:not-sr-only md:sticky md:w-2/5 lg:w-1/5 ">
@@ -15,13 +17,13 @@ export default async function layout({ children }) {
           Categories
         </h3>
         <ul className="mx-5 h-1/2 overflow-scroll rounded border-2 uppercase">
-          {categories.map((cat) => (
-            <li key={cat} className="">
+          {categories.map(({ name }) => (
+            <li key={name} className="">
               <Link
-                href={`/category/${cat}`}
+                href={`/category/${name}`}
                 className="block w-full p-2 shadow"
               >
-                {cat}
+                {name}
               </Link>
             </li>
           ))}

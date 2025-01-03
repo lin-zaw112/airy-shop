@@ -37,7 +37,7 @@ export default function Header() {
       <h1 className="font-serif text-4xl font-semibold">
         <Link href="/">
           Airy
-          <sapn className="font-sans text-lg font-bold">Shop</sapn>
+          <span className="font-sans text-lg font-bold">Shop</span>
         </Link>
       </h1>
       <div className="z-50 flex items-center space-x-2">
@@ -113,7 +113,7 @@ export default function Header() {
               >
                 <nav className="mt-10 h-full w-full p-6 font-sans uppercase">
                   <NavItem
-                    link={"/category/"}
+                    link="/category/"
                     menuToggle={() => {
                       SetMenu((prev) => !prev);
                     }}
